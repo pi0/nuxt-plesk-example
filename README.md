@@ -130,10 +130,10 @@ Create a file called `web.config` inside `/httpdocs`:
   <system.webServer>
     <rewrite>
       <rules>
-		    <rule name="server">
-			    <match url="/*" />
-			    <action type="Rewrite" url="server.js" />
-		    </rule>
+        <rule name="server">
+          <match url="/*" />
+          <action type="Rewrite" url="server.js" />
+        </rule>
       </rules>
     </rewrite>
   </system.webServer>
@@ -141,6 +141,8 @@ Create a file called `web.config` inside `/httpdocs`:
 ```
 
 Plesk node windows support is not so great. Please check `/logs/iisnode` for logs. 
+
+More info about iisnode: https://github.com/Azure/iisnode
 
 ## Nuxt.js
 
