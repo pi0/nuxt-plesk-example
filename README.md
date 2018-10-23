@@ -107,13 +107,6 @@ new Builder(nuxt).build().catch(err => {
 });
 ```
 
-If you don't prefer to build upon start, use "Run Script" tool to manually trigger a build:
-
-> build --scripts-prepend-node-path
-
-![image](https://user-images.githubusercontent.com/5158436/47367448-8bbf5c00-d6ec-11e8-8e3a-2a81c8ee01ec.png)
-
-
 ## Windows / IISNode
 
 Windows deployment is a little bit different by design with Plesk.
