@@ -98,5 +98,55 @@ If you don't prefer to build upon start, use "Run Script" tool to manually trigg
 ![image](https://user-images.githubusercontent.com/5158436/47367448-8bbf5c00-d6ec-11e8-8e3a-2a81c8ee01ec.png)
 
 
+If you prefer to automatically build upon server start (Not recommended), then append line(s) below:
 
-For detailed explanation on how things work, checkout [Nuxt.js docs](https://nuxtjs.org).
+```js
+new Builder(nuxt).build().catch(err => {
+  console.error(err);
+  process.exit(1);
+});
+```
+
+If you don't prefer to build upon start, use "Run Script" tool to manually trigger a build:
+
+> build --scripts-prepend-node-path
+
+![image](https://user-images.githubusercontent.com/5158436/47367448-8bbf5c00-d6ec-11e8-8e3a-2a81c8ee01ec.png)
+
+
+## Windows / IISNode
+
+Windows deployment is a little bit different by design with Plesk.
+
+Go into "Websites & Domains" > "Hosting Settings" and ensure that "Document Root" is set to `httpdocs` (Or where you clone your project. Not the ~~`httpdocs/dist`~~ folder)
+
+![image](https://user-images.githubusercontent.com/5158436/47394041-4b80cd80-d72e-11e8-93b9-27e744b7d82c.png)
+
+Go into Node.js settings and ensure that **BOTH** "Document Root" and "Application Root" are pointing to `/httpdocs`. They should be the same.
+
+![image](https://user-images.githubusercontent.com/5158436/47394114-86830100-d72e-11e8-8fa7-d9ae30df06e6.png)
+
+Using file manager's "Change Permissions" ensure that "Application pool group" has all permissions on `/httpdocs` directory. This is required for when we run build inside `server.js`.
+
+![image](https://user-images.githubusercontent.com/5158436/47394201-f4c7c380-d72e-11e8-8aed-378ae7cae375.png)
+
+Create a file called `web.config` inside `/httpdocs`:
+
+```xml
+<configuration>
+  <system.webServer>
+    <rewrite>
+      <rules>
+		    <rule name="server">
+			    <match url="/*" />
+			    <action type="Rewrite" url="server.js" />
+		    </rule>
+      </rules>
+    </rewrite>
+  </system.webServer>
+</configuration>
+```
+
+## Nuxt.js
+
+For detailed explanation on how Nuxt.js things work, checkout [Nuxt.js docs](https://nuxtjs.org).
