@@ -140,6 +140,8 @@ Create a file called `web.config` inside `/httpdocs`:
 </configuration>
 ```
 
+Plesk node windows support is not so great. Please check `/logs/iisnode` for logs. 
+
 ## Nuxt.js
 
 For detailed explanation on how Nuxt.js things work, checkout [Nuxt.js docs](https://nuxtjs.org).
