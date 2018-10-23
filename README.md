@@ -31,7 +31,7 @@ In this tutorial, I use `nuxt.127.0.0.1.xip.io` as Plesk is running on my laptop
 
 If you have a version control, you may prefer to enable "Git support". For this demo I use a simple hello-world repository:
 
-> https://github.com/pi0/nuxt-plesk-demo.git
+> https://github.com/pi0/nuxt-plesk-example.git
 
 
 Now from "Websites and Domains" tab, open "Node.js":
